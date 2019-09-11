@@ -1,11 +1,13 @@
 package authorization
 
 import (
-	"errors"
 	"github.com/casbin/casbin"
-	"github.com/alexedwards/scs/session"
+	"net/http"
+	"x-archives/http-csbin-example/model"
 )
 
-func Authorizer(e *csbin.Enforcer)  {
-
+func Authorizer(e *casbin.Enforcer,users model.Users) func(next http.Handler) http.Handler  {
+	return func(next http.Handler) http.Handler {
+		
+	}
 }
