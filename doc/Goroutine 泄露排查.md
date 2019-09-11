@@ -2,7 +2,7 @@
 
 我们在发布一个 go 应用时，默认都会启用两个 http handler: 一个是 pprof，方便线上动态追踪问题；另外一个是 prometheus 的 metrics，这样就可以通过 grafana 准实时的监控当前 runtime 信息，及时预警。就像下面这样：
 ***
-(```)
+```
     package router
 
     import (
@@ -27,7 +27,7 @@
     		}
     	}()
     }
-(```)
+```
 
 
 最近我在优化一个 push 服务的时候，便观察到了一个 goroutine 泄露问题：
