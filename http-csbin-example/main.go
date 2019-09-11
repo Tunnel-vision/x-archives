@@ -4,8 +4,7 @@ import (
 	"github.com/casbin/casbin"
 	"github.com/alexedwards/scs/engine/memstore"
 	"github.com/alexedwards/scs/session"
-	model2 "github.com/goim/logic/model"
-	"golang.org/x/tools/go/ssa/interp/testdata/src/fmt"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -14,7 +13,7 @@ import (
 )
 
 func main()  {
-	authEnforcer, err := casbin.NewEnforcerSafe("./auth_model.conf", "./policy.csv")
+	authEnforcer, err := casbin.NewEnforcerSafe("x-archives\\http-csbin-example\\auth_model.conf", "x-archives\\http-csbin-example\\policy.csv")
 	if err != nil{
 		log.Fatal(err)
 	}
@@ -30,8 +29,10 @@ func main()  {
 	mux.HandleFunc("/member/current", currentMemberHandler())
 	mux.HandleFunc("/member/role", memberRoleHandler())
 	mux.HandleFunc("/admin/stuff", adminHandler())
-	log.Fatal("Server started on localhost:8080")
-	http.ListenAndServe(":8080",sessionManager(authorization.Authorizer(authEnforcer,users)(mux)))
+	log.Println("Server started on localhost:8080")
+	if err := http.ListenAndServe(":8080",sessionManager(authorization.Authorizer(authEnforcer,users)(mux)));err != nil{
+		println(err)
+	}
 
 
 }

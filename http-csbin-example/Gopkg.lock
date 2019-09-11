@@ -10,9 +10,12 @@
   version = "v3.0.0"
 
 [[projects]]
-  digest = "1:c5edd12ad5522497065bb83da19f70f451822b539675a9c0297fe1e1bb678fd6"
+  digest = "1:65f20a16c54dc027fd3f90f1fa55394736e473b4247f84d0aae120f3bf02e524"
   name = "github.com/alexedwards/scs"
-  packages = ["session"]
+  packages = [
+    "engine/memstore",
+    "session",
+  ]
   pruneopts = "UT"
   revision = "0fdd3ef0cedf798548a2a904932bc0b4e13ee91b"
   version = "v0.1.1"
@@ -37,10 +40,19 @@
   revision = "aaed1b7a7eac65d37ec4e15e308429fdf0bd6a9e"
   version = "v1.9.1"
 
+[[projects]]
+  digest = "1:808cdddf087fb64baeae67b8dfaee2069034d9704923a3cb8bd96a995421a625"
+  name = "github.com/patrickmn/go-cache"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "a3647f8e31d79543b2d0f0ae2fe5c379d72cedc0"
+  version = "v2.1.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/alexedwards/scs/engine/memstore",
     "github.com/alexedwards/scs/session",
     "github.com/casbin/casbin",
   ]
