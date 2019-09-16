@@ -6,7 +6,7 @@ import (
 	"x-archives/pipe/model"
 	"log"
 	"os"
-	"github.com/gorm"
+	"github.com/jinzhu/gorm"
 )
 var db *gorm.DB
 var logger =  log.New(os.Stdout,"pipe",log.LstdFlags)
