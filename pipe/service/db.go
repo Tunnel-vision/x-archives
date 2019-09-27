@@ -19,6 +19,7 @@ func Connect_db()  {
 		log.Fatal("err:"+err.Error())
 	}
 	userSQLite = false
+	// 初始化 数据表结构，数据库 表的 及其表结构的初始化
 	if err := db.AutoMigrate(model.Models...).Error;nil != err{
 		fmt.Println("0"+err.Error())
 		logger.Output(2,"auto migrate tables false")

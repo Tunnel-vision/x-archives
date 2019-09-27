@@ -1,8 +1,11 @@
 package model
 
+// Tag model.
 type Tag struct {
 	Model
-	Title string
-	ArticleCount int
-	BlogID uint64
+
+	Title        string `gorm:"size:128" json:"title"`
+	ArticleCount int    `json:"articleCount"`
+
+	BlogID uint64 `sql:"index" json:"blogID"`
 }

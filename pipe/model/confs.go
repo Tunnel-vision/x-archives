@@ -7,7 +7,8 @@ var UserAgent = "Pipe/" + Version + "; +https://github.com/b3log/pipe"
 var Conf *Configuration
 
 var Models = []interface{}{
-	&User{},
+	&User{},&Article{},Article{},&Category{},&Comment{},
+	&Correlation{},&Navigation{},&Setting{},&Tag{},
 }
 
 type Configuration struct {

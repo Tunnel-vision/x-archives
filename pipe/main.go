@@ -19,8 +19,10 @@ func main()  {
 	service.Connect_db()
 	// service run
 	router := controller.MapRoutes()
+	// 初始化 http 服务器
 	server := &http.Server{
 		Addr:    "0.0.0.0:" + model.Conf.Port,
+		// 一个要实现 server_http 方法的 结构体
 		Handler: router,
 	}
 	if err := server.ListenAndServe();nil != err{
